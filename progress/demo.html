@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                font-size: 14px;
+                font-family: "微软雅黑";
+            }
+            .wrap {
+                width: 1000px;
+                margin: 100px;
+            }
+            .months span {
+                display: inline-block;
+                width: 79px;
+                text-align: center;
+            }
+            .progressbar {
+                height: 20px;
+                border-radius: 10px;
+                background-color: #ccc;
+                margin-top: 25px;
+                position: relative;
+            }
+            .progress {
+                height: 20px;
+                background-color: lightblue;
+                width: 111px;
+                border-top-left-radius: 10px;
+                border-bottom-left-radius: 10px;
+            }
+            .progress_btn {
+                width: 20px;
+                height: 40px;
+                background-color: rgb(152, 119, 113);
+                position: absolute;
+                left: 111px;
+                top: -10px;
+                cursor: pointer;
+            }
+            .show_month {
+                margin-top: 20px;
+                height: 30px;
+                line-height: 30px;
+            }
+        </style>
+        <script src="progress.js"></script>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="months">
+                <span>1月份</span>
+                <span>2月份</span>
+                <span>3月份</span>
+                <span>4月份</span>
+                <span>5月份</span>
+                <span>6月份</span>
+                <span>7月份</span>
+                <span>8月份</span>
+                <span>9月份</span>
+                <span>10月份</span>
+                <span>11月份</span>
+                <span>12月份</span>
+            </div>
+            <div class="progressbar" id="progressBar">
+                <div class="progress" id="progress"></div>
+                <div class="progress_btn" id="progressBtn"></div>
+            </div>
+            <div class="show_month" id="showMonth">显示2月的信息</div>
+        </div>
+    </body>
+</html>
