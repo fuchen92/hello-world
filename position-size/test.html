@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            #one {
+                width: 200px;
+                height: 200px;
+                background-color: lightblue;
+                border: 1px solid red;
+                /*padding: 10px;*/
+                /*margin: 10px;*/
+            }
+            #two {
+                width: 200px;
+                height: 200px;
+                background-color: rgba(191, 116, 54, 0.76);
+                border: 1px solid blue;
+                margin-left: 200px;
+            }
+            #three {
+                width: 200px;
+                height: 200px;
+                background-color: rgb(201, 123, 228);
+                margin-left: 100px;
+                padding-left: 20px;
+                /*position: relative;*/
+            }
+            #fourth {
+                /*position: absolute;
+                top: 20px;
+                left: 100px;*/
+                width: 50px;
+                height: 50px;
+                background-color: brown;
+            }
+        </style>
+        <script src="position-size.js"></script>
+    </head>
+    <body>
+        <div id="one">我是div one</div>
+
+        <p>DIV one的 scrollWidth 值是：<span id="text1"></span></p>
+        <p>DIV one的 clientWidth 值是：<span id="text2"></span></p>
+        <p>DIV one的 offsetWidth 值是：<span id="text3"></span></p>
+        <br>
+        <hr>
+
+        <div id="two">我是div two</div>
+        <p>DIV two的 offsetTop 值是：<span id="text4"></span></p>
+        <p>DIV two的 offsetLeft 值是：<span id="text5"></span></p>
+        <br>
+        <hr>
+
+        <div id="three">
+            <p>我是DIV three</p>
+            <div id="fourth">我是DIV fourth</div>
+        </div>
+        <p>DIV fourth 的offsetLeft 值是：<span id="text6"></span></p>
+
+    </body>
+</html>

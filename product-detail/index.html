@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>放大镜功能</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            h1 {
+                text-align: center;
+                margin: 50px auto; 0;
+            }
+            #box {
+                width: 1300px;
+                margin: 20px auto;
+                overflow: hidden;
+            }
+            #small {
+                width: 450px;
+                height: 450px;
+                border: 1px solid black;
+                position: relative;
+                float: left;
+            }
+            #mask {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 150px;
+                height: 150px;
+                background-color: rgba(214, 111, 193, 0.3);
+                cursor: pointer;
+                display: none;
+            }
+            #big {
+                width: 540px;
+                height: 540px;
+                border: 1px solid black;
+                float: left;
+                overflow: hidden;
+                display: none;
+            }
+        </style>
+        <script src="show-detail.js"></script>
+    </head>
+    <body>
+        <h1>商城产品详情放大镜</h1>
+        <div id="box">
+            <div id="small">
+                <img src="img/small.jpg" alt="">
+                <div id="mask"></div>
+            </div>
+            <div id="big">
+                <img src="img/big.jpg" alt="">
+            </div>
+        </div>
+    </body>
+</html>
