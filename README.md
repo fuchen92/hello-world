@@ -1,2 +1,2 @@
 # Demos test
-Some test demos all in this Repository
+Some practice demos all in this Repository
