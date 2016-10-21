@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>抽屉式图片展示效果</title>
+        <script src="jquery-1.11.3.js"></script>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                font-family: "微软雅黑";
+            }
+            body {
+                background: url("img/bg.jpg") center top;
+            }
+            #wrap {
+                width: 1092px;
+                height: 430px;
+                margin: 170px auto;
+            }
+            .content {
+                width: 100px;
+                height: 429px;
+                float: left;
+                cursor: pointer;
+            }
+            .img1 {
+                background: url(img/1.jpg);
+            }
+            .img2 {
+                background: url(img/2.jpg);
+            }
+            .img3 {
+                background: url(img/3.jpg);
+            }
+            .img4 {
+                width: 789px;
+                background: url(img/4.jpg);
+            }
+            .txt {
+                width: 76px;
+                height: 405px;
+                background: rgba(0, 0, 0, 0.5);
+                color: #fff;
+                padding: 24px 0 0 24px;
+            }
+            .p1 {
+                width: 12px;
+                font-size: 12px;
+                float: left;
+            }
+            .p2 {
+                width: 14px;
+                font-size: 14px;
+                font-weight: bold;
+                float: left;
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div class="content img1">
+                <div class="txt">
+                    <p class="p1">作者<br>：默默的墨墨</p>
+                    <p class="p2">我的个人拉萨之旅丨丨故事之城</p>
+                </div>
+            </div>
+            <div class="content img2">
+                <div class="txt">
+                    <p class="p1">作者<br>：美丽的天空</p>
+                    <p class="p2">拥抱绝美的戈壁丨丨倾听响沙的乐奏</p>
+                </div>
+            </div>
+            <div class="content img3">
+                <div class="txt">
+                    <p class="p1">作者<br>：默默的墨墨</p>
+                    <p class="p2">这美丽的丨丨香格里拉</p>
+                </div>
+            </div>
+            <div class="content img4">
+                <div class="txt">
+                    <p class="p1">作者<br>：美丽的天空</p>
+                    <p class="p2">征服个人项目 丨丨 南极</p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $("#wrap > .content").hover(function () {
+                $(this).stop(true).animate({ "width": "789px" }, 500).siblings().stop(true).animate({ "width": "100px" }, 500)
+            })
+        </script>
+    </body>
+</html>
