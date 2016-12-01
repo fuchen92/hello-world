@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>localStorage - test1</title>
+	</head>
+	<body>
+		<h3>简单的web记事本</h3>
+		<textarea name="" id="data" cols="40" rows="10"></textarea>
+		<br>
+		<input type="hidden" id="hide">
+		<input type="button" id="add" value="新增">
+		<input type="button" id="save" value="保存">
+		<input type="button" id="read" value="读取">
+		<input type="button" id="update" value="修改">
+		<input type="button" id="del" value="删除">
+		<input type="button" id="clear" value="清空">
+		<br>
+		<br>
+		<div id="show"></div>
+        <br>
+        <a href="test2.html" target="_blank">跳转到 test2.html</a>
+		<script type="text/javascript">
+			/*
+				新增：将textarea元素的value值清空（表示新建）
+				保存：
+					保存 —— 生成key值，将数据保存在localStorage中
+					修改 —— 存在key值，将新的数据重新保存在localStorage中
+				读取：—— 将localStorage中所有的数据进行读取
+					以table表格方式，显示在HTML页面中
+				修改：从读取的表格，选择一条数据，写入到textarea元素中
+				删除：从读取的表格额，选择一条数据，进行删除
+				清空：将localStorage中的所有数据删除
+			*/
+
+			var data = document.getElementById("data");
+			// 1、新增
+			var add = document.getElementById("add");
+			add.onclick = addData;
+			function addData(){
+				// 将textarea元素的value清空
+				data.value = "";
+				// 进行提示
+				// alert("已新建记事本");
+			}
+
+			// 2、保存
+			var save = document.getElementById("save");
+			save.onclick = function(){
+				// a、生成key值
+				var key = hide.value;
+				if ( !key ) {
+					key = new Date().getTime();
+				}
+				// b、获取数据内容
+				var value = data.value;
+				// c、将数据保存到localStorage中
+				localStorage.setItem( key,value );
+				// d、给出提示信息
+				alert("已保存成功");
+				// e、自动新建记事本
+				addData();
+			}
+
+			// 3、读取
+			var read = document.getElementById("read");
+			var show = document.getElementById("show");
+			read.onclick = readData;
+			function readData(){
+				// a. 获取localStorage中存储数据的个数
+				var count = localStorage.length;
+				// 进行HTML代码拼串
+				var html = "<table border='1'><tr><td></td><td>KEY</td><td>VALUE</td></tr>";
+				// b. 进行遍历
+				for(var i=0;i<count;i++){
+					// c. 根据索引值得到KEY值
+					var key = localStorage.key(i);
+					// d. 根据KEY值得到VALUE值
+					var value = localStorage.getItem(key);
+					// 进行HTML代码的拼串
+					html += "<tr><td><input type='radio' name='datas' value='"+key+"'></td><td>"+key+"</td><td>"+value+"</td></tr>";
+				}
+				html += "</table>";
+				show.innerHTML = html;
+			}
+
+			// 4、修改
+			var hide = document.getElementById("hide");
+			var update = document.getElementById("update");
+			update.onclick = function(){
+				// a. 获取当前所有的单选框
+				var radios = document.getElementsByName("datas");
+				// b. 进行遍历
+				for(var i=0;i<radios.length;i++){
+					// 得到每个单选框
+					var radio = radios[i];
+					// 判断是否选中
+					if(radio.checked){
+						// 得到KEY值
+						var key = radio.value;
+						break;
+					}
+				}
+				// c. 根据KEY值获取VALUE
+				var value = localStorage.getItem(key);
+				// d. 将VALUE写入textarea元素中
+				data.value = value;
+				// e. 将KEY值写入到hidden元素中
+				hide.value = key;
+			}
+
+			// 5、删除
+			var del = document.getElementById("del");
+			del.onclick = function(){
+				// 把选择的那条数据，进行删除
+				// a、获取所有的单选框
+				var radios = document.getElementsByName("datas");
+				// b、遍历所有单选框
+				for (var i = 0; i < radios.length; i++) {
+					// 获取每个单选框
+					var radio = radios[i];
+					// 判断是否被选中
+					if ( radio.checked ) {
+						// 得到对应的key值
+						var key = radio.value;
+						// 进行删除
+						localStorage.removeItem( key );
+						// 重新获取单选框
+						radios = document.getElementsByName("datas");
+						break;
+					}
+				}
+				// c. 给出提示
+				alert("已经成功删除.");
+				// d. 重新读取
+				readData();
+				// 判断当前是否为最后一条
+				if(radios.length == 0){
+					show.innerHTML = "";
+				}
+			}
+
+			// 6、清空
+			var clear = document.getElementById("clear");
+			clear.onclick = function(){
+				localStorage.clear();
+				alert("已经成功清空");
+				// 重新加载HTML页面 —— location.reload()；
+				show.innerHTML = "";
+			}
+		</script>
+	</body>
+</html>

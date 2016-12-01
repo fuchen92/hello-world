@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>localStorage - test2</title>
+        <style>
+            * {
+               margin: 0;
+               padding: 0;
+               font-family: "微软雅黑";
+            }
+            #btn {
+               -webkit-appearance: none;
+               outline: none;
+               border: none;
+               width: 200px;
+               height: 45px;
+               line-height: 45px;
+               margin: 20px;
+               background-color: #E16449;
+               color: #fff;
+               border-radius: 5px;
+               cursor: pointer;
+               font-size: 16px;
+               letter-spacing: 5px;
+               transition: background-color 0.2s;
+            }
+            #btn:hover {
+               background-color: #d28d51;
+            }
+        </style>
+    </head>
+    <body>
+        <input id="btn" type="button" value="按钮">
+        <div id="box">
+
+        </div>
+    </body>
+
+    <script>
+
+        function readData(){
+            // a. 获取localStorage中存储数据的个数
+            var count = localStorage.length;
+            // 进行HTML代码拼串
+            var html = "<table border='1'><tr><td></td><td>KEY</td><td>VALUE</td></tr>";
+            // b. 进行遍历
+            for(var i=0;i<count;i++){
+                // c. 根据索引值得到KEY值
+                var key = localStorage.key(i);
+                // d. 根据KEY值得到VALUE值
+                var value = localStorage.getItem(key);
+                // 进行HTML代码的拼串
+                html += "<tr><td><input type='radio' name='datas' value='"+key+"'></td><td>"+key+"</td><td>"+value+"</td></tr>";
+            }
+            html += "</table>";
+            document.getElementById("box").innerHTML = html;
+        }
+        readData();
+    </script>
+</html>
