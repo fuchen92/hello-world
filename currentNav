@@ -1,0 +1,15 @@
+ 跳转到当前页面给当前页面的导航加上激活样式的写法
+ 
+ var url = location.href.toLowerCase();
+$(".nav-left a").each(function (index) {
+  if(location.pathname == $(this).attr("href")){
+    $(this).parent().addClass("nav-this");
+    return false;
+  }
+    if (url.indexOf($(this).attr("href")) != -1 && index != 0 ) {
+        $(this).parent().addClass("nav-this").siblings().removeClass("nav-this");
+        return false;
+    }
+
+    return true;
+});
