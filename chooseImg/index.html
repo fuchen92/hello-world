@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            html, body {
+                width: 100%;
+                height: 100%;
+            }
+            ul, li {
+                list-style: none;
+            }
+            select {
+                border: 0;
+                outline: 0;
+            }
+            .wrapper {
+                width: 960px;
+                height: 100%;
+                margin: 20px auto;
+                border: 1px solid red;
+            }
+            .select_group {
+                text-align: center;
+            }
+            .select_list {
+                display: inline-block;
+                box-sizing: border-box;
+                width: 200px;
+                height: 45px;
+                border: 1px solid #dddddd;
+                border-radius: 2px;
+                padding: 0 15px;
+            }
+            .show_box {
+                margin-top: 20px;
+            }
+            .show_list {
+                overflow: hidden;
+            }
+            .show_item {
+                width: 180px;
+                float: left;
+                margin-right: 10px;
+            }
+            .show_item img {
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="select_group">
+                <select class="select_list" id="category">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                <select>
+                <select class="select_list" id="segmentation">
+                    <option value="0">请选择</option>
+                    <option value="1">a1</option>
+                    <option value="2">a2</option>
+                    <option value="3">a3</option>
+                    <option value="4">a4</option>
+                    <option value="5">a5</option>
+                    <option value="6">a6</option>
+                    <option value="7">a7</option>
+                <select>
+            </div>
+            <div class="show_box">
+                <ul class="show_list" id="show_list">
+                    <li class="show_item">
+                        <img src="imgs/a1.jpg">
+                    </li>
+                    <li class="show_item">
+                        <img src="imgs/a2.jpg">
+                    </li>
+                    <li class="show_item">
+                        <img src="imgs/a3.jpg">
+                    </li>
+                    <li class="show_item">
+                        <img src="imgs/a4.jpg">
+                    </li>
+                    <li class="show_item">
+                        <img src="imgs/a5.jpg">
+                    </li>
+                    <li class="show_item">
+                        <img src="imgs/a6.jpg">
+                    </li>
+                    <li class="show_item">
+                        <img src="imgs/a7.jpg">
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <script src="./indes.js"></script>
+        <!-- <script>
+            function chooseImg (ele) {
+                console.log(ele)
+            }
+        </script> -->
+    </body>
+<html>
